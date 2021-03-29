@@ -9,7 +9,7 @@ def readme():
 
 setup(
   name='sphinxcontrib-repl-selectability',
-  version='0.1.0',
+  use_scm_version=True,
   url='https://github.com/smheidrich/sphinxcontrib-repl-selectability',
   license='MIT',
   author='Shahriar Heidrich',
@@ -36,5 +36,6 @@ setup(
   packages=find_packages(),
   include_package_data=True,
   install_requires=['Sphinx >= 1.8'],
+  setup_requires=['setuptools_scm'],
   namespace_packages=['sphinxcontrib'],
 )
