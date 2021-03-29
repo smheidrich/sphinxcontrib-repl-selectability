@@ -64,3 +64,7 @@ Simply specify it as an extension in your Sphinx docs' ``conf.py`` file:
     'sphinxcontrib.repl_selectability',
   ]
 
+It will automatically add the selectability options checkboxes to any `doctest`
+snippets (application to regular RST codeblocks involving REPLs hasn't been
+implemented yet, cf. `this issue
+<https://github.com/smheidrich/sphinxcontrib-repl-selectability/issues/1>`_.
