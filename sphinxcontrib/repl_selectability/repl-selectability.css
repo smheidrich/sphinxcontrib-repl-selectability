@@ -1,0 +1,36 @@
+
+.codesettings {
+  font-size: 14px;
+  font-variant: small-caps;
+  background: #ddd;
+  border-bottom: 1px solid white;
+  font-family: sans-serif;
+}
+
+/* Stolen from: https://stackoverflow.com/a/16063190/2748899 */
+.codesettings input[type="checkbox"] {
+  width: 12px;
+  height: 12px;
+  vertical-align: bottom;
+  transform: scale(0.8);
+  margin: 0px 2px;
+  padding: 0px;
+}
+
+.codesettings input[type="checkbox"]:hover {
+  cursor: pointer;
+}
+
+.codesettings label {
+  padding-right: 0.5em;
+  border-right: 1px solid white;
+}
+
+.codesettings label:hover {
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.codesettings label span {
+
+}
