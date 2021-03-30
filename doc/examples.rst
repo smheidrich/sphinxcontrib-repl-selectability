@@ -2,12 +2,13 @@ More examples
 =============
 
 This page lists some more examples that double as tests that the extension
-works in all sorts of situations.
+works in all sorts of situations. Click on "Page source" to see how these
+differ in detail.
 
 Doctest block
 -------------
 
-Nothing new here except some errors (different CSS class in pygments):
+Same snippet as the one on the home page, just to have everything in one place:
 
 >>> print("Hello world")
 Hello world

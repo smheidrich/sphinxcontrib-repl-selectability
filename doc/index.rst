@@ -10,27 +10,17 @@ rest.
 Demo
 ----
 
->>> from frozenexpr import returns_freezing, unfreeze
->>>
->>> @returns_freezing()
-... class Rectangle:
-...   def __init__(self, a, b, name):
-...     self.a = a
-...     self.b = b
-...     self.name = name
-...
-...   @property
-...   def area(self):
-...     return self.a*self.b
->>>
->>> r1 = Rectangle(1, 2, "r1")
->>> r2 = Rectangle(3, 4, "r2")
->>>
->>> expr = r2.area / r1.area + 1
->>> print(expr)
-(r2.area / r1.area + 1)
->>> unfreeze(expr)
-7.0
+>>> print("Hello world")
+Hello world
+>>> please complain about syntax thank you
+  File "<stdin>", line 1
+    please complain about syntax thank you
+           ^
+SyntaxError: invalid syntax
+>>> print("Hello", doesnt_exist=3)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'doesnt_exist' is an invalid keyword argument for print()
 
 
 Installation
