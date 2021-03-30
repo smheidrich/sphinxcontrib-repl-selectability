@@ -4,7 +4,7 @@ function hasPrompts(highlightElem) {
 
 window.onload = function() {
   var highlightElems = document.getElementsByClassName('highlight');
-  for (highlightElem of highlightElems) {
+  for (let highlightElem of highlightElems) {
     if (!hasPrompts(highlightElem)) {
       continue;
     }
@@ -18,21 +18,17 @@ window.onload = function() {
     selectPromptsNode.innerHTML = '<input type="checkbox"><span>select prompts</span>';
     codeSettingsNode.firstChild.appendChild(selectPromptsNode);
 
-    /* closure bs, important for ev handler below */
-    let highlightElemParent = highlightElem.parentNode;
-
-    highlightElemParent.insertBefore(codeSettingsNode,
-      highlightElemParent.firstChild);
+    highlightElem.parentNode.insertBefore(codeSettingsNode, highlightElem);
 
     selectOutputsNode.firstChild.addEventListener("change", (ev) => {
-      for (subelem of highlightElemParent.getElementsByClassName('go')) {
+      for (subelem of highlightElem.getElementsByClassName('go')) {
         var c = ev.target.checked;
         subelem.style.userSelect = c ? 'auto' : 'none';
       }
     });
 
     selectPromptsNode.firstChild.addEventListener("change", (ev) => {
-      for (subelem of highlightElemParent.getElementsByClassName('gp')) {
+      for (subelem of highlightElem.getElementsByClassName('gp')) {
         var c = ev.target.checked;
         subelem.style.userSelect = c ? 'auto' : 'none';
       }
