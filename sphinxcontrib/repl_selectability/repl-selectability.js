@@ -60,6 +60,9 @@ window.onload = function() {
 
     highlightElem.parentNode.insertBefore(codeSettingsNode, highlightElem);
 
+    /* checkbox change handlers: */
+
+    /* output selectability (line-based: prompt lines vs no-prompt lines) */
     selectOutputsNode.firstChild.addEventListener("change", (ev) => {
       var c = ev.target.checked;
       var inPromptLine = false;
@@ -77,6 +80,7 @@ window.onload = function() {
       }
     });
 
+    /* prompt selectability */
     selectPromptsNode.firstChild.addEventListener("change", (ev) => {
       var c = ev.target.checked;
       for (subelem of highlightElem.getElementsByClassName('gp')) {
