@@ -7,6 +7,16 @@ function hasPrompts(highlightElem) {
   return highlightElem.getElementsByClassName('gp').length > 0;
 }
 
+function detectPromptsSelectable(highlightElem) {
+  var promptElems = highlightElem.getElementsByClassName('gp');
+  if (promptElems.length < 1) {
+    /* no prompt elems => doesn't matter, return whatever */
+    return false;
+  }
+  var promptElemStyle = window.getComputedStyle(promptElems[0]);
+  return !(promptElemStyle.userSelect == 'none');
+}
+
 /* wrapping text node stuff based on:
  * https://coryrylan.com/blog/wrapping-dom-text-nodes-with-javascript
  */
@@ -51,11 +61,19 @@ window.onload = function() {
     var codeSettingsNode = document.createElement("div");
     codeSettingsNode.classList.add('codesettings');
     codeSettingsNode.innerHTML = '<form></form>';
+
     var selectOutputsNode = document.createElement("label");
     selectOutputsNode.innerHTML = '<input type="checkbox" checked><span>select outputs</span>';
     codeSettingsNode.firstChild.appendChild(selectOutputsNode);
+
     var selectPromptsNode = document.createElement("label");
     selectPromptsNode.innerHTML = '<input type="checkbox"><span>select prompts</span>';
+    /* this is needed because currently, vanilla Sphinx already makes doctest
+     * prompts unselectable, but not non-doctest prompts... => different
+     * "pre-selected" checkboxes */
+    if (detectPromptsSelectable(highlightElem)) {
+      selectPromptsNode.firstChild.setAttribute('checked', '');
+    }
     codeSettingsNode.firstChild.appendChild(selectPromptsNode);
 
     highlightElem.parentNode.insertBefore(codeSettingsNode, highlightElem);
