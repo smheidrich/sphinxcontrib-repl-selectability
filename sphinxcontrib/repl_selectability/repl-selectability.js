@@ -1,6 +1,13 @@
+function hasPrompts(highlightElem) {
+  return highlightElem.getElementsByClassName('gp').length > 0;
+}
+
 window.onload = function() {
-  var elems = document.getElementsByClassName('doctest');
-  for (elem of elems) {
+  var highlightElems = document.getElementsByClassName('highlight');
+  for (highlightElem of highlightElems) {
+    if (!hasPrompts(highlightElem)) {
+      continue;
+    }
     var codeSettingsNode = document.createElement("div");
     codeSettingsNode.classList.add('codesettings');
     codeSettingsNode.innerHTML = '<form></form>';
@@ -10,18 +17,22 @@ window.onload = function() {
     var selectPromptsNode = document.createElement("label");
     selectPromptsNode.innerHTML = '<input type="checkbox"><span>select prompts</span>';
     codeSettingsNode.firstChild.appendChild(selectPromptsNode);
-    elem.insertBefore(codeSettingsNode, elem.firstChild);
 
-    let elemClos = elem; /* closure bs, important for ev handler below */
+    /* closure bs, important for ev handler below */
+    let highlightElemParent = highlightElem.parentNode;
+
+    highlightElemParent.insertBefore(codeSettingsNode,
+      highlightElemParent.firstChild);
+
     selectOutputsNode.firstChild.addEventListener("change", (ev) => {
-      for (subelem of elemClos.getElementsByClassName('go')) {
+      for (subelem of highlightElemParent.getElementsByClassName('go')) {
         var c = ev.target.checked;
         subelem.style.userSelect = c ? 'auto' : 'none';
       }
     });
 
     selectPromptsNode.firstChild.addEventListener("change", (ev) => {
-      for (subelem of elemClos.getElementsByClassName('gp')) {
+      for (subelem of highlightElemParent.getElementsByClassName('gp')) {
         var c = ev.target.checked;
         subelem.style.userSelect = c ? 'auto' : 'none';
       }

@@ -68,3 +68,21 @@ It will automatically add the selectability options checkboxes to any `doctest`
 snippets (application to regular RST codeblocks involving REPLs hasn't been
 implemented yet, cf. `this issue
 <https://github.com/smheidrich/sphinxcontrib-repl-selectability/issues/1>`_.
+
+
+Table of contents
+-----------------
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   examples
+
+
+Indices and tables
+------------------
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
