@@ -68,6 +68,7 @@ Table of contents
    :caption: Contents:
 
    examples
+   theming
 
 
 Indices and tables

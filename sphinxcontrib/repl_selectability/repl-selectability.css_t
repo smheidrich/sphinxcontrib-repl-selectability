@@ -2,7 +2,7 @@
 .codesettings {
   font-size: 14px;
   font-variant: small-caps;
-  background: #ddd;
+  background: {{ theme_codesettings_bg }};
   border-bottom: 1px solid white;
   font-family: sans-serif;
 }
@@ -24,10 +24,11 @@
 .codesettings label {
   padding-right: 0.5em;
   border-right: 1px solid white;
+  color: {{ theme_codesettings_button_text }};
 }
 
 .codesettings label:hover {
-  background-color: #ccc;
+  background-color: {{ theme_codesettings_button_hover_bg }};
   cursor: pointer;
 }
 
