@@ -43,6 +43,18 @@ Sphinx RST code block instead of doctest block:
   TypeError: 'doesnt_exist' is an invalid keyword argument for print()
 
 
+Languages other than Python
+---------------------------
+
+.. code:: console
+
+  $ echo 'Hello world'
+  Hello world
+  $ echo 'a multiline '\
+  > 'string'
+  a multiline string
+
+
 No prompt
 ---------
 
