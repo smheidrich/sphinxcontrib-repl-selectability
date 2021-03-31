@@ -1,3 +1,11 @@
+**NOTE:** Shortly after I got done writing this I gathered from a comment on
+the relevant [Sphinx issue](https://github.com/sphinx-doc/sphinx/pull/6727#issuecomment-541393869)
+that this already exists in Python's own docs (``>>>`` symbol in the top right,
+[copybutton.js](https://docs.python.org/3/_static/copybutton.js)). The version
+in the Python docs looks better and has cleaner code, so this is totally
+useless now.
+
+
 sphinxcontrib-repl-selectability
 ================================
 
