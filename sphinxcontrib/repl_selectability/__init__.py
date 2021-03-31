@@ -14,15 +14,13 @@ def inject_js_css_paths(app):
   app.add_css_file("repl-selectability.css")
 
 def copy_asset_files(app, exc):
-  asset_files = [...]
   if exc is None: # build succeeded
-    for path in asset_files:
-      with importlib.resources.path(__name__, "repl-selectability.js") as p:
-        # XXX: open sphinx ticket regarding copy_asset being able to take
-        # pathlib.Path so I don't have to convert it to str here
-        copy_asset(str(p), os.path.join(app.outdir, '_static'))
-      with importlib.resources.path(__name__, "repl-selectability.css") as p:
-        copy_asset(str(p), os.path.join(app.outdir, '_static'))
+    with importlib.resources.path(__name__, "repl-selectability.js") as p:
+      # XXX: open sphinx ticket regarding copy_asset being able to take
+      # pathlib.Path so I don't have to convert it to str here
+      copy_asset(str(p), os.path.join(app.outdir, '_static'))
+    with importlib.resources.path(__name__, "repl-selectability.css") as p:
+      copy_asset(str(p), os.path.join(app.outdir, '_static'))
 
 def setup(app):
   app.connect('builder-inited', inject_js_css_paths)
