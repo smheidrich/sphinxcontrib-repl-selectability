@@ -14,10 +14,13 @@ Within the above dict, you can set:
 
 More to follow later...
 
-If these aren't set, the extension will try to fall back to predefined options
-for your currently loaded theme (identified only by name). If it complains that
-it didn't find one for your theme, feel free to make a pull request with what
-you think looks good.
+If these aren't set, the extension will try to fall back to a predefined config
+for the default colors of your currently loaded theme (identified only by name,
+hence might be ambiguous). So if you've changed its default colors, the
+extension theme will probably look bad and you should set its colors explicitly
+as stated above.
+If it complains that it didn't find a config for your theme, feel free to send
+a pull request with what you think looks good.
 
 Finally, if it can't find predefined options for the current theme, it will
 fall back to hardcoded defaults (just some grey stuff for now).
